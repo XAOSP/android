@@ -20,8 +20,6 @@
              sync-j="4" />
 
     <!-- Get rid of LineageOS repos -->
-    <remove-project name="LineageOS/android_packages_apps_RepainterServicePriv" />
-    <remove-project name="LineageOS/android_packages_apps_XSettings" />
     <remove-project name="LineageOS/android_packages_apps_SetupWizard" />
     <remove-project name="LineageOS/android_frameworks_libs_systemui" />
     <remove-project name="LineageOS/android_system_sepolicy" />
@@ -33,47 +31,47 @@
     <remove-project name="LineageOS/android_packages_resources_devicesettings" />
     <remove-project name="LineageOS/android_lineage-sdk" />
     <remove-project name="LineageOS/android_build" />
-    <remove-project name="LineageOS/android_device_xiaomi_alioth" />
     <remove-project name="LineageOS/android_packages_overlays_Lineage" />
     <remove-project name="LineageOS/android_frameworks_av" />
     <remove-project name="LineageOS/android_packages_apps_LineageParts" />
-    <remove-project name="LineageOS/android_vendor_support" />
     <remove-project name="LineageOS/android_frameworks_base" />
     <remove-project name="LineageOS/android_packages_apps_Settings" />
-    <remove-project name="LineageOS/android_device_xiaomi_sm8250-common" />
     <remove-project name="LineageOS/android_bootable_recovery" />
-    <remove-project name="LineageOS/android_external_themelib" />
-    <remove-project name="LineageOS/android_external_colorkt" />
-    <remove-project name="LineageOS/android_packages_apps_Launcher3" />
-    <remove-project name="LineageOS/android_packages_apps_WallpaperPicker" />
+    <remove-project name="LineageOS/android_packages_apps_Trebuchet" />
     <remove-project name="LineageOS/android_packages_apps_WallpaperPicker2" />
 
     <!-- Add X-Aosp ROM repos -->
-    <project path="device/xiaomi/sm8250-common" name="XAOSP/android_device_xiaomi_sm8250-common" remote="xaosp" />
-    <project path="android" name="XAOSP/android_android" remote="xaosp" />
-    <project path="frameworks/base" name="XAOSP/android_frameworks_base" remote="xaosp" />
-    <project path="frameworks/av" name="XAOSP/android_frameworks_av" remote="xaosp" />
-    <project path="frameworks/native" name="XAOSP/android_frameworks_native" remote="xaosp" />
-    <project path="device/xiaomi/alioth" name="XAOSP/android_device_xiaomi_alioth" remote="xaosp" />
-    <project path="frameworks/libs/systemui" name="XAOSP/android_frameworks_libs_systemui" remote="xaosp" />
-    <project path="build/soong" name="XAOSP/android_build_soong" remote="xaosp" />
-    <project path="build" name="XAOSP/android_build" remote="xaosp" />
-    <project path="packages/apps/WallpaperPicker2" name="XAOSP/android_packages_apps_WallpaperPicker2" remote="xaosp" />
-    <project path="packages/apps/WallpaperPicker" name="XAOSP/android_packages_apps_WallpaperPicker" remote="xaosp" />
+    <project path="android" name="XAOSP/android" remote="xaosp" />
+    <project path="build/make" name="XAOSP/android_build" remote="xaosp" >
+        <copyfile src="core/root.mk" dest="Makefile" />
+        <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+        <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+        <linkfile src="core" dest="build/core" />
+        <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+        <linkfile src="target" dest="build/target" />
+        <linkfile src="tools" dest="build/tools" />
+    </project>
+    <project path="build/soong" name="XAOSP/android_build_soong" remote="xaosp">
+        <linkfile src="root.bp" dest="Android.bp" />
+        <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+    </project>
+    <project path="packages/apps/Launcher3" name="XAOSP/android_packages_apps_Launcher3" remote="xaosp" />
     <project path="packages/apps/Settings" name="XAOSP/android_packages_apps_Settings" remote="xaosp" />
+    <project path="vendor/support" name="XAOSP/android_vendor_support" remote="xaosp" />
+    <project path="packages/apps/LineageParts" name="XAOSP/android_packages_apps_LineageParts" remote="xaosp" />
+    <project path="frameworks/libs/systemui" name="XAOSP/android_frameworks_libs_systemui" remote="xaosp" />
+    <project path="system/core" name="XAOSP/android_system_core" remote="xaosp" />
+    <project path="system/sepolicy" name="XAOSP/android_system_sepolicy" remote="xaosp" />
     <project path="lineage-sdk" name="XAOSP/android_lineage-sdk" remote="xaosp" />
+    <project path="packages/apps/SetupWizard" name="XAOSP/android_packages_apps_SetupWizard" remote="xaosp" />
     <project path="packages/apps/Backgrounds" name="XAOSP/android_packages_apps_Backgrounds" remote="xaosp" />
     <project path="packages/resources/devicesettings" name="XAOSP/android_packages_resources_devicesettings" remote="xaosp" />
     <project path="packages/overlays/Lineage" name="XAOSP/android_packages_overlays_Lineage" remote="xaosp" />
-    <project path="system/core" name="XAOSP/android_system_core" remote="xaosp" />
-    <project path="packages/apps/Launcher3" name="XAOSP/android_packages_apps_Launcher3" remote="xaosp" />
-    <project path="packages/apps/LineageParts" name="XAOSP/android_packages_apps_LineageParts" remote="xaosp" />
-    <project path="system/sepolicy" name="XAOSP/android_system_sepolicy" remote="xaosp" />
-    <project path="external/colorkt" name="XAOSP/android_external_colorkt" remote="xaosp" />
-    <project path="external/themelib" name="XAOSP/android_external_themelib" remote="xaosp" />
+    <project path="frameworks/av" name="XAOSP/android_frameworks_av" remote="xaosp" />
+        <project path="frameworks/native" name="XAOSP/android_frameworks_native" remote="xaosp" />
+    <project path="frameworks/base" name="XAOSP/android_frameworks_base" remote="xaosp" />
     <project path="bootable/recovery" name="XAOSP/android_bootable_recovery" remote="xaosp" />
-    <project path="vendor/support" name="XAOSP/android_vendor_support" remote="xaosp" />
-    <project path="packages/apps/SetupWizard" name="XAOSP/android_packages_apps_SetupWizard" remote="xaosp" />
-    <project path="packages/apps/XSettings" name="XAOSP/android_packages_apps_XSettings" remote="xaosp" />
-    <project path="packages/apps/RepainterServicePriv" name="XAOSP/android_packages_apps_RepainterServicePriv" remote="xaosp" />
+    <project path="external/themelib" name="XAOSP/android_external_themelib" remote="xaosp" />
+    <project path="external/colorkt" name="XAOSP/android_external_colorkt" remote="xaosp" />
+    <project path="packages/apps/WallpaperPicker2" name="XAOSP/android_packages_apps_WallpaperPicker2" remote="xaosp" />
 </manifest>
